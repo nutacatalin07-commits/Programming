@@ -62,3 +62,5 @@ int main(){
      } while(choice!=0);
     return 0;
 }
+//am avut probleme atunci cand compilam programu nu mergea compilat normal,am intrb
+//de la vs si mi a spus sa i dau asa gcc -Wall -Wextra -g ex1.04.c -o ex1.04 si a functionat
