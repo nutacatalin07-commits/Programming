@@ -7,9 +7,9 @@ void print_bar(int len) {
 }
 
 void print_histogram(int count[]) {
-    for (int i = 1; i <= 5; i++) {
-        printf("%dxx | %3d | ", i, count[c]);
-        print_bar(count[i]);
+    for (int c = 1; c <= 5; c++) {
+        printf("%dxx | %3d | ", c, count[c]);
+        print_bar(count[c]);
         printf("\n");
     }
 }
@@ -40,17 +40,10 @@ int main() {
     print_histogram(count);
     printf("Invalid: %d\n", invalid);
 
-    int valid_counts[5];
-    int total_valid_codes = 0;
-    for (int i = 0; i < 5; i++) {
-        valid_counts[i] = count[i + 1];
-        total_valid_codes += count[i + 1];
-    }
-
-    if (total_valid_codes == 0) {
+    int best_idx = posmax_array(5, count + 1);
+    if (count[best_idx + 1] == 0) {
         printf("Most frequent: none\n");
     } else {
-        int best_idx = posmax_array(5, valid_counts);
         printf("Most frequent: %dxx\n", best_idx + 1);
     }
 
